@@ -1,0 +1,9 @@
+Account Number,Meter ID,Facility,Tariff,Bill Start Date,Bill End Date,kWh Usage,kW Demand,Read Type,Total Charge,Currency
+ACC-7413,MTR-0081,Berlin HQ — Main Feed,BT-H,2024-01-15,2024-02-13,48291,187.4,Actual,4892.40,EUR
+ACC-7413,MTR-0081,Berlin HQ — Main Feed,BT-H,2024-02-14,2024-03-14,51043,192.1,Actual,5180.34,EUR
+ACC-8821,MTR-0142,Munich Plant — Industrial Meter,SLP-G,2024-01-18,2024-02-17,61200,411.2,Estimated,9180.00,EUR
+ACC-8821,MTR-0142,Munich Plant — Industrial Meter,SLP-G,2024-02-18,2024-03-17,58900,398.7,Actual,8835.00,EUR
+ACC-2290,MTR-0019,London Office,E-19,2024-01-10,2024-02-09,8750,,Actual,2187.50,GBP
+ACC-2290,MTR-0019,London Office,E-19,2024-02-10,2024-03-10,7980,,Actual,1995.00,GBP
+ACC-5512,MTR-0203,Berlin HQ — HVAC Supplementary,BT-H,2024-01-20,2024-02-19,12400,48.3,Actual,1240.00,EUR
+ACC-5512,MTR-0203,Berlin HQ — HVAC Supplementary,BT-H,2024-02-20,2024-03-20,11100,45.1,Actual,1110.00,EUR

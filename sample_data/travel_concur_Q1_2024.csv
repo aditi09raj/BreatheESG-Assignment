@@ -1,0 +1,18 @@
+Report ID,Employee ID,Employee Name,Cost Center,Expense Type,Expense Type Code,Transaction Date,Vendor Name,From City,To City,Class of Service,Check-in Date,Check-out Date,Number of Nights,Transaction Amount,Transaction Currency,Personal Expense,Business Purpose
+ABC123,EMP-00142,"Smith, Jane",CC-SALES-EU,Airfare,AIRFR,2024-03-10,United Airlines,San Francisco,New York,Economy,,,,847.00,USD,N,Client meeting NYC
+ABC123,EMP-00142,"Smith, Jane",CC-SALES-EU,Hotel,HOTEL,2024-03-10,Marriott Times Square,,New York,,2024-03-10,2024-03-12,2,490.00,USD,N,Client meeting NYC
+ABC123,EMP-00142,"Smith, Jane",CC-SALES-EU,Taxi,TAXI,2024-03-10,NYC Taxi,,,,,,,42.00,USD,N,Airport transfer
+DEF456,EMP-00087,"Müller, Klaus",CC-ENG-DE,Airfare,AIRFR,2024-03-14,Lufthansa,Munich,Singapore,Business,,,,3840.00,EUR,N,APAC partner summit
+DEF456,EMP-00087,"Müller, Klaus",CC-ENG-DE,Hotel,HOTEL,2024-03-14,Shangri-La Singapore,,Singapore,,2024-03-14,2024-03-17,3,1230.00,SGD,N,APAC partner summit
+DEF456,EMP-00087,"Müller, Klaus",CC-ENG-DE,Airfare,AIRFR,2024-03-17,Lufthansa,Singapore,Munich,Business,,,,3840.00,EUR,N,APAC partner summit return
+GHI789,EMP-00201,"Patel, Anita",CC-SALES-EU,Airfare,AIRFR,2024-03-05,British Airways,London,Chicago,Economy,,,,620.00,GBP,N,Sales conference
+GHI789,EMP-00201,"Patel, Anita",CC-SALES-EU,Car Rental,CARRT,2024-03-05,Hertz,Chicago,Chicago,,2024-03-05,2024-03-08,3,187.50,USD,N,Customer site visits
+GHI789,EMP-00201,"Patel, Anita",CC-SALES-EU,Hotel,HOTEL,2024-03-05,Marriott Chicago,,Chicago,,2024-03-05,2024-03-08,3,720.00,USD,N,Sales conference
+JKL012,EMP-00102,"Schmidt, Anna",CC-ENG-DE,Train,TRAIN,2024-03-21,Deutsche Bahn,Berlin,Hamburg,,,,,89.00,EUR,N,Conference attendance
+JKL012,EMP-00102,"Schmidt, Anna",CC-ENG-DE,Hotel,HOTEL,2024-03-21,Radisson Hamburg,,Hamburg,,2024-03-21,2024-03-22,1,145.00,EUR,N,Conference attendance
+MNO345,EMP-00055,"Nakamura, Yuki",CC-FIN-DE,Airfare,AIRFR,2024-02-19,All Nippon Airways,Frankfurt,Tokyo,Economy,,,,1240.00,EUR,N,Audit preparation
+MNO345,EMP-00055,"Nakamura, Yuki",CC-FIN-DE,Hotel,HOTEL,2024-02-19,Hilton Tokyo,,Tokyo,,2024-02-19,2024-02-23,4,680.00,JPY,N,Audit preparation
+MNO345,EMP-00055,"Nakamura, Yuki",CC-FIN-DE,Airfare,AIRFR,2024-02-23,All Nippon Airways,Tokyo,Frankfurt,Economy,,,,1240.00,EUR,N,Audit preparation return
+PQR678,EMP-00310,"Okafor, Emeka",CC-OPS-DE,Meal,MEALF,2024-03-12,Frankfurt Airport Bistro,,,,,,,, 28.50,EUR,N,Travel meal
+PQR678,EMP-00310,"Okafor, Emeka",CC-OPS-DE,Airfare,AIRFR,2024-03-12,Ryanair,Frankfurt,Warsaw,Economy,,,,89.00,EUR,N,Supplier audit
+PQR678,EMP-00310,"Okafor, Emeka",CC-OPS-DE,Hotel,HOTEL,2024-03-12,Ibis Warsaw,,Warsaw,,2024-03-12,2024-03-13,1,65.00,EUR,N,Supplier audit
