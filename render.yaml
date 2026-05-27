@@ -30,7 +30,7 @@ services:
         fromService:
           type: web
           name: esg-backend
-          property: url
+          property: host
     routes:
       - type: rewrite
         source: /*
