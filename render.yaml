@@ -3,7 +3,8 @@ services:
     name: esg-backend
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements-prod.txt && python manage.py collectstatic --noinput && python manage.py migrate && python manage.py seed
+    buildCommand: pip install -r requirements-prod.txt && SECRET_KEY=build-only python manage.py collectstatic --noinput
+    preDeployCommand: python manage.py migrate && python manage.py seed
     startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
     rootDir: backend
     envVars:
