@@ -31,41 +31,58 @@ export default function RecordDetail() {
   const [msg, setMsg] = useState('')
 
   const load = async () => {
-    const { data } = await api.get(`/records/${id}/`)
-    setRecord(data)
-    setEditForm({
-      quantity: data.quantity,
-      unit: data.unit,
-      period_start: data.period_start,
-      period_end: data.period_end,
-      facility_code: data.facility_code,
-      facility_name: data.facility_name,
-      country_code: data.country_code,
-    })
-    setLoading(false)
+    try {
+      const { data } = await api.get(`/records/${id}/`)
+      setRecord(data)
+      setEditForm({
+        quantity: data.quantity,
+        unit: data.unit,
+        period_start: data.period_start,
+        period_end: data.period_end,
+        facility_code: data.facility_code,
+        facility_name: data.facility_name,
+        country_code: data.country_code,
+      })
+    } catch {
+      setRecord(null)
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => { load() }, [id])
 
   const action = async (act) => {
     setActionLoading(true)
-    await api.post(`/records/${id}/review/`, { action: act, notes })
-    await load()
-    setNotes('')
-    setMsg(`Record ${act}d.`)
-    setActionLoading(false)
-    setTimeout(() => setMsg(''), 3000)
+    try {
+      await api.post(`/records/${id}/review/`, { action: act, notes })
+      await load()
+      setNotes('')
+      setMsg(`Record ${act}d.`)
+      setTimeout(() => setMsg(''), 3000)
+    } catch {
+      setMsg('Action failed. Please try again.')
+      setTimeout(() => setMsg(''), 3000)
+    } finally {
+      setActionLoading(false)
+    }
   }
 
   const saveEdit = async () => {
     setActionLoading(true)
-    await api.patch(`/records/${id}/edit/`, { ...editForm, reason: editReason })
-    await load()
-    setEditMode(false)
-    setEditReason('')
-    setMsg('Changes saved.')
-    setActionLoading(false)
-    setTimeout(() => setMsg(''), 3000)
+    try {
+      await api.patch(`/records/${id}/edit/`, { ...editForm, reason: editReason })
+      await load()
+      setEditMode(false)
+      setEditReason('')
+      setMsg('Changes saved.')
+      setTimeout(() => setMsg(''), 3000)
+    } catch {
+      setMsg('Save failed. Please try again.')
+      setTimeout(() => setMsg(''), 3000)
+    } finally {
+      setActionLoading(false)
+    }
   }
 
   if (loading) return <div className="p-8 text-gray-400">Loading…</div>

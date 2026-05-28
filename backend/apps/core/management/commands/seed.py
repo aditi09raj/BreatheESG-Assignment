@@ -220,13 +220,13 @@ class Command(BaseCommand):
 
         # Seed emission records
         created = 0
-        for rec in SAMPLE_RECORDS:
+        for i, rec in enumerate(SAMPLE_RECORDS, start=1):
             src_type = rec['source_type']
             run = runs[src_type]
 
             raw, _ = RawRecord.objects.get_or_create(
                 ingestion_run=run,
-                row_index=created + 1,
+                row_index=i,
                 defaults={
                     'raw_data': {'seeded': True, 'source_type': src_type},
                     'parse_status': 'OK',

@@ -52,10 +52,15 @@ export default function Review() {
   const bulkAction = async (action) => {
     if (selected.size === 0) return
     setBulkLoading(true)
-    await api.post('/records/bulk/', { ids: [...selected], action, notes: bulkNotes })
-    setBulkNotes('')
-    await load()
-    setBulkLoading(false)
+    try {
+      await api.post('/records/bulk/', { ids: [...selected], action, notes: bulkNotes })
+      setBulkNotes('')
+      await load()
+    } catch {
+      // load() has its own error handling; nothing else to do
+    } finally {
+      setBulkLoading(false)
+    }
   }
 
   const toggleAll = () => {
