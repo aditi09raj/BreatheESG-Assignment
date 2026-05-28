@@ -30,15 +30,21 @@ export default function Review() {
 
   const load = useCallback(async () => {
     setLoading(true)
-    const params = new URLSearchParams({ page })
-    if (statusFilter) params.set('status', statusFilter)
-    if (scopeFilter) params.set('scope', scopeFilter)
-    if (sourceFilter) params.set('source_type', sourceFilter)
-    const { data } = await api.get(`/records/?${params}`)
-    setRecords(data.results ?? data)
-    setTotal(data.count ?? (data.results ?? data).length)
-    setSelected(new Set())
-    setLoading(false)
+    try {
+      const params = new URLSearchParams({ page })
+      if (statusFilter) params.set('status', statusFilter)
+      if (scopeFilter) params.set('scope', scopeFilter)
+      if (sourceFilter) params.set('source_type', sourceFilter)
+      const { data } = await api.get(`/records/?${params}`)
+      const rows = Array.isArray(data.results ?? data) ? (data.results ?? data) : []
+      setRecords(rows)
+      setTotal(data.count ?? rows.length)
+      setSelected(new Set())
+    } catch {
+      setRecords([])
+    } finally {
+      setLoading(false)
+    }
   }, [statusFilter, scopeFilter, sourceFilter, page])
 
   useEffect(() => { load() }, [load])

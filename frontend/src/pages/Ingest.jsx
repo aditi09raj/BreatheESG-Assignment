@@ -23,8 +23,14 @@ export default function Ingest() {
   const [runs, setRuns] = useState([])
 
   useEffect(() => {
-    api.get('/sources/').then(r => setSources(r.data.results ?? r.data))
-    api.get('/runs/').then(r => setRuns(r.data.results ?? r.data))
+    api.get('/sources/').then(r => {
+      const d = r.data.results ?? r.data
+      setSources(Array.isArray(d) ? d : [])
+    }).catch(() => {})
+    api.get('/runs/').then(r => {
+      const d = r.data.results ?? r.data
+      setRuns(Array.isArray(d) ? d : [])
+    }).catch(() => {})
   }, [])
 
   const submit = async (e) => {
