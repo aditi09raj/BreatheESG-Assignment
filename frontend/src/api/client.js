@@ -3,7 +3,7 @@ import axios from 'axios'
 // In production on Render, VITE_API_URL is the backend service URL.
 // In local dev it is not set, so we fall back to '/api' (proxied by Vite).
 const API_BASE = import.meta.env.VITE_API_URL
-  ? `https://${import.meta.env.VITE_API_URL}/api`
+  ? `${import.meta.env.VITE_API_URL}/api`
   : '/api'
 
 const api = axios.create({
