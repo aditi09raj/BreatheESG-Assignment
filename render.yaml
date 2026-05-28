@@ -24,7 +24,7 @@ services:
     name: esg-frontend
     runtime: static
     buildCommand: npm install && npm run build
-    staticPublishPath: dist
+    staticPublishPath: frontend/dist
     rootDir: frontend
     envVars:
       - key: VITE_API_URL
