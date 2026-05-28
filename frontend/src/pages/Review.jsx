@@ -19,6 +19,7 @@ export default function Review() {
   const [records, setRecords] = useState([])
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [selected, setSelected] = useState(new Set())
   const [bulkNotes, setBulkNotes] = useState('')
   const [bulkLoading, setBulkLoading] = useState(false)
@@ -31,6 +32,7 @@ export default function Review() {
   const load = useCallback(async () => {
     setLoading(true)
     try {
+      setLoadError(false)
       const params = new URLSearchParams({ page })
       if (statusFilter) params.set('status', statusFilter)
       if (scopeFilter) params.set('scope', scopeFilter)
@@ -42,6 +44,7 @@ export default function Review() {
       setSelected(new Set())
     } catch {
       setRecords([])
+      setLoadError(true)
     } finally {
       setLoading(false)
     }
@@ -169,7 +172,10 @@ export default function Review() {
             {loading && (
               <tr><td colSpan={8} className="px-4 py-6 text-center text-gray-400">Loading…</td></tr>
             )}
-            {!loading && records.length === 0 && (
+            {!loading && loadError && (
+              <tr><td colSpan={8} className="px-4 py-6 text-center text-red-500">Failed to load records — please refresh or sign in again</td></tr>
+            )}
+            {!loading && !loadError && records.length === 0 && (
               <tr><td colSpan={8} className="px-4 py-6 text-center text-gray-400">No records match the current filters</td></tr>
             )}
             {records.map(rec => (

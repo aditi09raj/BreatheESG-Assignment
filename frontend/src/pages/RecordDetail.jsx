@@ -43,8 +43,6 @@ export default function RecordDetail() {
         facility_name: data.facility_name,
         country_code: data.country_code,
       })
-    } catch {
-      setRecord(null)
     } finally {
       setLoading(false)
     }
