@@ -28,10 +28,7 @@ services:
     rootDir: frontend
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: esg-backend
-          property: url
+        value: "https://esg-backend-32av.onrender.com"
     routes:
       - type: rewrite
         source: /*
